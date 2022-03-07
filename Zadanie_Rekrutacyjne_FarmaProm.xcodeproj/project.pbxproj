@@ -13,6 +13,9 @@
 		36CF545E27D6738F007AFAF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CF545D27D6738F007AFAF9 /* Assets.xcassets */; };
 		36CF546127D6738F007AFAF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CF545F27D6738F007AFAF9 /* LaunchScreen.storyboard */; };
 		36CF546F27D67719007AFAF9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CF546E27D67718007AFAF9 /* Colors.xcassets */; };
+		36CF547127D679CA007AFAF9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547027D679CA007AFAF9 /* NetworkManager.swift */; };
+		36CF547327D67AFB007AFAF9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547227D67AFB007AFAF9 /* UserModel.swift */; };
+		36CF547527D67CB8007AFAF9 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547427D67CB8007AFAF9 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		36CF546027D6738F007AFAF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36CF546227D6738F007AFAF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CF546E27D67718007AFAF9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		36CF547027D679CA007AFAF9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		36CF547227D67AFB007AFAF9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		36CF547427D67CB8007AFAF9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		36CF546927D676D0007AFAF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				36CF547227D67AFB007AFAF9 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,6 +92,7 @@
 		36CF546A27D676D5007AFAF9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				36CF547427D67CB8007AFAF9 /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 		36CF546D27D676FC007AFAF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				36CF547027D679CA007AFAF9 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -186,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CF547127D679CA007AFAF9 /* NetworkManager.swift in Sources */,
+				36CF547527D67CB8007AFAF9 /* UserViewModel.swift in Sources */,
 				36CF545927D6738D007AFAF9 /* ViewController.swift in Sources */,
 				36CF545527D6738D007AFAF9 /* AppDelegate.swift in Sources */,
+				36CF547327D67AFB007AFAF9 /* UserModel.swift in Sources */,
 				36CF545727D6738D007AFAF9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
