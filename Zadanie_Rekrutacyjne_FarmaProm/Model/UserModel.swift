@@ -46,6 +46,7 @@ struct User: Decodable {
     let email: String
     let phone, cell: String
     let picture: Picture
+    let location: Location
 
     struct Name: Decodable {
         let title: String
@@ -55,5 +56,15 @@ struct User: Decodable {
 
     struct Picture: Decodable {
         let large, medium, thumbnail: String
+    }
+    
+    struct Location: Decodable {
+        let street: Street
+        let city, state: String
+    }
+    
+    struct Street: Decodable {
+        let number: Int
+        let name: String
     }
 }

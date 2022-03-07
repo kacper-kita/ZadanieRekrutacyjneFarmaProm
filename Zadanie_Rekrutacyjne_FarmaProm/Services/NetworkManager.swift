@@ -17,7 +17,6 @@ final class NetworkManager {
         guard let url = URL(string: apiURL) else {return}
         
         
-        
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data else {
                 completion(nil)

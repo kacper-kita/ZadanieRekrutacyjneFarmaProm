@@ -16,6 +16,7 @@
 		36CF547127D679CA007AFAF9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547027D679CA007AFAF9 /* NetworkManager.swift */; };
 		36CF547327D67AFB007AFAF9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547227D67AFB007AFAF9 /* UserModel.swift */; };
 		36CF547527D67CB8007AFAF9 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547427D67CB8007AFAF9 /* UserViewModel.swift */; };
+		36CF547727D687F1007AFAF9 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF547627D687F1007AFAF9 /* UserListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		36CF547027D679CA007AFAF9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36CF547227D67AFB007AFAF9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		36CF547427D67CB8007AFAF9 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		36CF547627D687F1007AFAF9 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				36CF547427D67CB8007AFAF9 /* UserViewModel.swift */,
+				36CF547627D687F1007AFAF9 /* UserListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			files = (
 				36CF547127D679CA007AFAF9 /* NetworkManager.swift in Sources */,
 				36CF547527D67CB8007AFAF9 /* UserViewModel.swift in Sources */,
+				36CF547727D687F1007AFAF9 /* UserListViewModel.swift in Sources */,
 				36CF545927D6738D007AFAF9 /* ViewController.swift in Sources */,
 				36CF545527D6738D007AFAF9 /* AppDelegate.swift in Sources */,
 				36CF547327D67AFB007AFAF9 /* UserModel.swift in Sources */,
