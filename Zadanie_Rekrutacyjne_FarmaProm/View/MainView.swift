@@ -19,7 +19,7 @@ final class MainView: UIView {
         return label
     }()
     
-    private lazy var subTitleLabel: UILabel = {
+     lazy var subTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -27,6 +27,14 @@ final class MainView: UIView {
         label.font = UIFont(name: "Rockwell", size: 18)
         
         return label
+    }()
+    
+    lazy var tableView: UITableView = {
+        let tableV = UITableView()
+        tableV.translatesAutoresizingMaskIntoConstraints = false
+        tableV.register(MainTableViewCell.self, forCellReuseIdentifier: "mainViewCell")
+        
+        return tableV
     }()
     
     init() {
@@ -42,6 +50,7 @@ final class MainView: UIView {
     private func setupView() {
         addSubview(mainLabel)
         addSubview(subTitleLabel)
+        addSubview(tableView)
 
         setupConstraints()
     }
@@ -57,6 +66,13 @@ final class MainView: UIView {
             subTitleLabel.leftAnchor.constraint(equalTo: leftAnchor),
             subTitleLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 30),
             subTitleLabel.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.leftAnchor.constraint(equalTo: leftAnchor),
+            tableView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 30),
+            tableView.rightAnchor.constraint(equalTo: rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

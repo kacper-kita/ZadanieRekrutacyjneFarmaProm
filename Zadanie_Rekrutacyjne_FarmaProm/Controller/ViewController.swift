@@ -13,10 +13,14 @@ class ViewController: UIViewController {
         let mainView = MainView()
         return mainView
     }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
         setupView()
     }
 
@@ -35,6 +39,20 @@ class ViewController: UIViewController {
             mainView.rightAnchor.constraint(equalTo: view.rightAnchor),
             mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainViewCell") as! MainTableViewCell
+        
+        cell.titleLabel.text = "test"
+        
+        return cell
     }
 }
 
