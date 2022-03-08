@@ -18,21 +18,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.tableView.dataSource = self
-        mainView.tableView.delegate = self
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
         setupView()
         fetchUsers()
     }
 
-
     private func setupView() {
         view.addSubview(mainView)
         view.backgroundColor = .white
+        
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
         
         setupConstraints()
     }
