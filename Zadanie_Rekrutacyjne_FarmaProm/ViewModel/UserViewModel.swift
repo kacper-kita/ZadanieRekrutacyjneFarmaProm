@@ -27,7 +27,7 @@ struct UserViewModel {
     }
     
     var picture: String {
-        return user.picture.medium
+        return user.picture.large
     }
     
     var street: String {
