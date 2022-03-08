@@ -18,7 +18,7 @@ final class MainTableViewCell: UITableViewCell {
         
     }()
     
-    lazy var titleLabel: UILabel = {
+    lazy var firstNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -26,14 +26,12 @@ final class MainTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .fill
-        stackView.distribution = .fill
+    lazy var lastNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         
-        return stackView
+        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -47,31 +45,32 @@ final class MainTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        addSubview(stackView)
-        stackView.addArrangedSubview(userImage)
-        stackView.addArrangedSubview(titleLabel)
+        addSubview(userImage)
+        addSubview(firstNameLabel)
+        addSubview(lastNameLabel)
 
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: userImage.leftAnchor, constant: 10),
-            titleLabel.rightAnchor.constraint(equalTo: rightAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            userImage.leftAnchor.constraint(equalTo: leftAnchor),
-            userImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            userImage.heightAnchor.constraint(equalToConstant: 30)
+            userImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 5),
+            userImage.topAnchor.constraint(equalTo: topAnchor),
+            userImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            userImage.widthAnchor.constraint(equalToConstant: 60)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.leftAnchor.constraint(equalTo: leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: rightAnchor),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            firstNameLabel.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 30),
+            firstNameLabel.topAnchor.constraint(equalTo: topAnchor),
+            firstNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            lastNameLabel.leftAnchor.constraint(equalTo: firstNameLabel.rightAnchor, constant: 10),
+            lastNameLabel.topAnchor.constraint(equalTo: topAnchor),
+            lastNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            lastNameLabel.rightAnchor.constraint(equalTo: rightAnchor),
         ])
     }
 }

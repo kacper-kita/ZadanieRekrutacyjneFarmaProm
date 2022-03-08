@@ -63,7 +63,7 @@ final class MainView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            subTitleLabel.leftAnchor.constraint(equalTo: leftAnchor),
+            subTitleLabel.leftAnchor.constraint(equalTo: leftAnchor,constant: 15),
             subTitleLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 30),
             subTitleLabel.heightAnchor.constraint(equalToConstant: 30)
         ])

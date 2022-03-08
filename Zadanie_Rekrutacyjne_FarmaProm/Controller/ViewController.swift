@@ -9,19 +9,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var viewModel = UserListViewModel()
+    
     private lazy var mainView: MainView = {
         let mainView = MainView()
         return mainView
     }()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
         setupView()
+        fetchUsers()
     }
 
 
@@ -30,6 +35,12 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         
         setupConstraints()
+    }
+    
+    private func fetchUsers() {
+        viewModel.getUsers { (_) in
+            self.mainView.tableView.reloadData()
+        }
     }
     
     private func setupConstraints() {
@@ -44,15 +55,30 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel.userVM.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainViewCell") as! MainTableViewCell
         
-        cell.titleLabel.text = "test"
+        let user = viewModel.userVM[indexPath.row]
+        
+        cell.firstNameLabel.text = user.first
+        cell.lastNameLabel.text = user.last
+        NetworkManager.shared.getImage(urlString: user.picture) { data in
+            
+            guard let image = data else {return}
+            
+            DispatchQueue.main.sync {
+                   cell.userImage.image = UIImage(data: image)
+            }
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 
