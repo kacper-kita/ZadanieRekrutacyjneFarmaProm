@@ -58,7 +58,7 @@ final class MainView: UIView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             mainLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mainLabel.topAnchor.constraint(equalTo: topAnchor, constant: 60),
+            mainLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50),
             mainLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         
@@ -70,7 +70,7 @@ final class MainView: UIView {
         
         NSLayoutConstraint.activate([
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
-            tableView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 30),
+            tableView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 10),
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])

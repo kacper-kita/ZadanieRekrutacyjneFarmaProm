@@ -54,7 +54,7 @@ final class MainTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            userImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 5),
+            userImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             userImage.topAnchor.constraint(equalTo: topAnchor),
             userImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             userImage.widthAnchor.constraint(equalToConstant: 60)

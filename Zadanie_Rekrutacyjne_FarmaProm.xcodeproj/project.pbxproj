@@ -80,6 +80,7 @@
 				36CF546C27D676DF007AFAF9 /* Resources */,
 				36CF545427D6738D007AFAF9 /* AppDelegate.swift */,
 				36CF545627D6738D007AFAF9 /* SceneDelegate.swift */,
+				36CF546227D6738F007AFAF9 /* Info.plist */,
 			);
 			path = Zadanie_Rekrutacyjne_FarmaProm;
 			sourceTree = "<group>";
@@ -126,7 +127,6 @@
 				36CF545D27D6738F007AFAF9 /* Assets.xcassets */,
 				36CF546E27D67718007AFAF9 /* Colors.xcassets */,
 				36CF545F27D6738F007AFAF9 /* LaunchScreen.storyboard */,
-				36CF546227D6738F007AFAF9 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
