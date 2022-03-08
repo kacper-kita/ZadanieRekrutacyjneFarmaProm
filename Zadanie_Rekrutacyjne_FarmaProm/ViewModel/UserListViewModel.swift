@@ -19,7 +19,8 @@ class UserListViewModel {
             
             let userVM = users.results.map(UserViewModel.init)
             DispatchQueue.main.async {
-                self.userVM = userVM.sorted(by: {$0.last < $1.last})
+                self.userVM = userVM.sorted(by: {($0.last, $0.first) <
+                    ($1.last, $1.first)})
               
                 completion(userVM)
             }
