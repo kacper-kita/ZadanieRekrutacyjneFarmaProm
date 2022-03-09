@@ -13,9 +13,14 @@ final class NetworkManager {
     
     //MARK: Functions
     
+    //function to download the contact list from the API
     public func getUsers(completion: @escaping (Users?) -> Void ) {
         guard let url = URL(string: apiURL) else {return}
         
+        /*
+         Validate if there is already a saved file with the downloaded user list.
+         If it does not exist it is retrieved and saved to the file "userData.json" and then decoded.
+         */
         if self.readFromFile(filename: "userData.json") != nil {
             guard let userData = self.readFromFile(filename: "userData.json") else {return}
 
@@ -36,6 +41,7 @@ final class NetworkManager {
         }
     }
     
+    //image retrieval function
     func getImage(urlString: String, completion: @escaping (Data?) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(nil)
@@ -51,6 +57,8 @@ final class NetworkManager {
             completion(data)
         }.resume()
     }
+    
+    //MARK: Functions for local file management
     
     func saveToLocalFile(userData: Data, filename: String) {
         do {

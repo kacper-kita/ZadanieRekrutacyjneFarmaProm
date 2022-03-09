@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 final class MainView: UIView {
+    
+    //MARK: Setup view
     private lazy var mainLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,10 +49,6 @@ final class MainView: UIView {
         return button
     }()
     
-    @objc func printCos() {
-        print("Cos")
-    }
-    
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +58,8 @@ final class MainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder) ERROR")
     }
+    
+    //MARK: Private funcions
     
     private func setupView() {
         addSubview(mainLabel)

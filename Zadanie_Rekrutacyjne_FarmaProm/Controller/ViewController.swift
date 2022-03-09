@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         setupView()
         fetchUsers()
     }
+    
+    //MARK: Private functions
 
     private func setupView() {
         view.addSubview(mainView)
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         
+        //setting the target for the button to refresh the user list
         mainView.refreshButton.addTarget(self, action: #selector(refreshData), for: .touchUpInside)
         
         setupConstraints()
@@ -42,11 +45,10 @@ class ViewController: UIViewController {
     }
     
     @objc private func refreshData() {
+        //the current local file with user data is cleaned before downloading
         NetworkManager.shared.deleteLocalFile(filename: "userData.json")
         
-        viewModel.getUsers { (_) in
-            self.mainView.tableView.reloadData()
-        }
+        fetchUsers()
     }
     
     private func setupConstraints() {
@@ -59,6 +61,8 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: Extensions
+
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.userVM.count
@@ -69,9 +73,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let user = viewModel.userVM[indexPath.row]
         
-        cell.favID = indexPath.row
+        cell.favID = indexPath.row //setting the ID for the favourites button
         cell.firstNameLabel.text = user.first
         cell.lastNameLabel.text = user.last
+        
+        //downloading an image by its URL and then assigning it to a thumbnail
         NetworkManager.shared.getImage(urlString: user.picture) { data in
             
             guard let image = data else {return}
@@ -80,7 +86,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                    cell.userImage.image = UIImage(data: image)
             }
         }
-        cell.updateSelection()
+        cell.updateSelection() //refresh your favourite contacts list
         
         return cell
     }
@@ -89,9 +95,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let data = viewModel.userVM[indexPath.row]
         let detailViewController = DetailViewController(data: data)
-        
-        
-
+    
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     

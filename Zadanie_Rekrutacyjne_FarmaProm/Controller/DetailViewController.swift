@@ -28,6 +28,20 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
+    }
+    
+    //MARK: Private functions
+    
+    private func setupView() {
+        view.addSubview(detailView)
+        view.backgroundColor = .white
+        
+        setupConstraints()
+        setupData()
+    }
+    
+    private func setupData() {
         detailView.userName.text = data.first + " " + data.last
         detailView.userPhone.text = data.phone
         detailView.userEmail.text = data.email
@@ -43,14 +57,6 @@ class DetailViewController: UIViewController {
                 self.detailView.userImage.image = UIImage(data: image)
             }
         }
-        setupView()
-    }
-    
-    private func setupView() {
-        view.addSubview(detailView)
-        view.backgroundColor = .white
-        
-        setupConstraints()
     }
     
     private func setupConstraints() {
