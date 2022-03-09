@@ -64,6 +64,7 @@ final class MainTableViewCell: UITableViewCell {
         let userDefault = UserDefaults.standard
         let isFav = userDefault.bool(forKey: key)
         favoriteButton.isSelected = isFav
+        print(userDefault.bool(forKey: key))
     }
     
     @objc func starAction() {
