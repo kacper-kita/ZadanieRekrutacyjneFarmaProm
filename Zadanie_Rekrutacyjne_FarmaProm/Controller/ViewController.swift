@@ -30,10 +30,20 @@ class ViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         
+        mainView.refreshButton.addTarget(self, action: #selector(refreshData), for: .touchUpInside)
+        
         setupConstraints()
     }
     
     private func fetchUsers() {
+        viewModel.getUsers { (_) in
+            self.mainView.tableView.reloadData()
+        }
+    }
+    
+    @objc private func refreshData() {
+        NetworkManager.shared.deleteLocalFile(filename: "userData.json")
+        
         viewModel.getUsers { (_) in
             self.mainView.tableView.reloadData()
         }

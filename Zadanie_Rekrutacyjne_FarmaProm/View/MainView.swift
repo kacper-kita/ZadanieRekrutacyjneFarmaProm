@@ -37,6 +37,20 @@ final class MainView: UIView {
         return tableV
     }()
     
+    lazy var refreshButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "goforward", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.contentMode = .scaleAspectFit
+        
+        return button
+    }()
+    
+    @objc func printCos() {
+        print("Cos")
+    }
+    
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +63,7 @@ final class MainView: UIView {
     
     private func setupView() {
         addSubview(mainLabel)
+        addSubview(refreshButton)
         addSubview(subTitleLabel)
         addSubview(tableView)
 
@@ -60,6 +75,12 @@ final class MainView: UIView {
             mainLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             mainLabel.topAnchor.constraint(equalTo: topAnchor, constant: 50),
             mainLabel.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            refreshButton.leftAnchor.constraint(equalTo: subTitleLabel.rightAnchor, constant: 25),
+            refreshButton.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 25),
+            
         ])
         
         NSLayoutConstraint.activate([
