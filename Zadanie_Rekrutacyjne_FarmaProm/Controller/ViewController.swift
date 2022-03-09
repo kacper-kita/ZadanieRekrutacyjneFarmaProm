@@ -69,6 +69,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let user = viewModel.userVM[indexPath.row]
         
+        cell.favID = indexPath.row
         cell.firstNameLabel.text = user.first
         cell.lastNameLabel.text = user.last
         NetworkManager.shared.getImage(urlString: user.picture) { data in
@@ -79,6 +80,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                    cell.userImage.image = UIImage(data: image)
             }
         }
+        cell.updateSelection()
         
         return cell
     }
@@ -87,6 +89,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let data = viewModel.userVM[indexPath.row]
         let detailViewController = DetailViewController(data: data)
+        
+        
 
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
