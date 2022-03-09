@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 final class DetailView: UIView {
+    
+    //MARK: Setup view
+    
     lazy var userImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -188,6 +191,8 @@ final class DetailView: UIView {
         fatalError("init(coder) ERROR")
     }
     
+    //MARK: Private functions
+    
     private func setupView() {
         addSubview(userImage)
         addSubview(userName)
@@ -206,7 +211,6 @@ final class DetailView: UIView {
         cityStackView.addArrangedSubview(userCity)
         stateStackView.addArrangedSubview(stateTitle)
         stateStackView.addArrangedSubview(userState)
-
 
         setupConstraints()
     }

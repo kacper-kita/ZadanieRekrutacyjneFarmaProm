@@ -10,7 +10,9 @@ import UIKit
 
 final class MainTableViewCell: UITableViewCell {
     
-    var favID:Int = 0
+    //MARK: Setup view
+    
+    var favID:Int = 0 //variable to store the ID for the favourites button
     
     lazy var userImage: UIImageView = {
         let image = UIImageView()
@@ -59,14 +61,17 @@ final class MainTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Functions
+    
+    //refreshing favorite contacts list with userDefaults
     func updateSelection() {
         let key = "\(favID)"
         let userDefault = UserDefaults.standard
         let isFav = userDefault.bool(forKey: key)
         favoriteButton.isSelected = isFav
-        print(userDefault.bool(forKey: key))
     }
     
+    //saving the status of the favourite contact button
     @objc func starAction() {
         favoriteButton.isSelected = !favoriteButton.isSelected
         let key = "\(favID)"
@@ -74,6 +79,8 @@ final class MainTableViewCell: UITableViewCell {
         userDefault.set(favoriteButton.isSelected, forKey: key)
         userDefault.synchronize()
     }
+    
+    //MARK: Private functions
     
     private func setupView() {
         addSubview(userImage)
